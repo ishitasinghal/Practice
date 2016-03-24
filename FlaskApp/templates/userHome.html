@@ -9,7 +9,41 @@
  
     <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
     <link href="../static/css/signup.css" rel="stylesheet">
- 
+    <script src="../static/js/jquery-1.12.2.js"></script>
+    <script src="../static/js/jquery-1.11.2.js"></script>
+    <script>
+        $(function(){
+            $.ajax({
+                url : '/getWish',
+                type : 'GET',
+                success: function(res){
+                    var div = $('<div>')
+        .attr('class', 'list-group')
+        .append($('<a>')
+            .attr('class', 'list-group-item active')
+            .append($('<h4>')
+                .attr('class', 'list-group-item-heading'),
+                $('<p>')
+                .attr('class', 'list-group-item-text')));
+                                    
+                    
+                    
+                    var wishObj = JSON.parse(res);
+                    var wish = '';
+                    
+                    $.each(wishObj,function(index, value){
+                        wish = $(div).clone();
+                        $(wish).find('h4').text(value.Title);
+                        $(wish).find('p').text(value.Description);
+                        $('.jumbotron').append(wish);
+                    });
+                },
+                error: function(error){
+                    console.log(error);
+                }
+            });
+        });
+    </script>
  
 </head>
  
@@ -28,7 +62,7 @@
         </div>
  
         <div class="jumbotron">
-            <h1>Welcome Home !!</h1>
+            
  
         </div>
  
