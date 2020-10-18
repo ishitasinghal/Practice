@@ -13,7 +13,7 @@ git 'https://github.com/ishitasinghal/Practice.git'
 }
 stage('Build') {
 steps {
-sh 'docker build -t sample-web-app .'
+bat 'docker build -t sample-web-app .'
 }
 }
 stage('Building our image') {
