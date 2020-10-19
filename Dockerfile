@@ -1,11 +1,6 @@
-FROM python:alpine 
-
-LABEL maintainer="Ishita Singhal"
-
-RUN pip install flask
-
-COPY src /src/
-
+FROM python:3.6.1-alpine
+WORKDIR /project
+ADD . /project
+RUN pip install -r requirements.txt
 EXPOSE 5000
-
-ENTRYPOINT ["python", "/src/app.py"]
+CMD ["python","app.py"]
