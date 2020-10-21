@@ -8,9 +8,9 @@ mysql = MySQL()
 
 # MySQL configurations
 app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'UyNh4eve@6514'
-app.config['MYSQL_DATABASE_DB'] = 'bucketlist'
-app.config['MYSQL_DATABASE_HOST'] = 'localhost'
+app.config['MYSQL_DATABASE_PASSWORD'] = 'password'
+app.config['MYSQL_DATABASE_DB'] = 'Candidates'
+app.config['MYSQL_DATABASE_HOST'] = 'database-node.cu3tii08dxzj.us-east-1.rds.amazonaws.com'
 mysql.init_app(app)
 
 # set a secret key for the session
